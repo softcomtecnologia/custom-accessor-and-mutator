@@ -15,5 +15,5 @@
         "psr-4": {
             "Igorwanbarros\\CustomAccessorAndMutator\\": "vendor/igorwanbarros/custom-accessor-and-mutator/src/"
         }
-    },
+    }
 }
