@@ -2,10 +2,21 @@
 
 namespace Igorwanbarros\CustomAccessorAndMutator;
 
-
+/**
+ * Trait CustomAccessorsAndMutators
+ * @package Igorwanbarros\CustomAccessorAndMutator
+ */
 trait CustomAccessorsAndMutators
 {
 
+    /**
+     * Overwrite method of Model class to assign (s) mutator (s) custom (s).
+     *
+     * @param  string $key
+     * @param  mixed  $value
+     *
+     * @return $this
+     */
     public function setAttribute($key, $value)
     {
         if ($this->_hasExistsCustomMutators($key) && isset($this->attributes[$key]) && !$this->hasSetMutator($key)) {
@@ -20,6 +31,13 @@ trait CustomAccessorsAndMutators
     }
 
 
+    /**
+     * Overwrite method of Model class for a simple attribute.
+     *
+     * @param  string $key
+     *
+     * @return mixed
+     */
     public function getAttributeValue($key)
     {
         if ($this->_hasExistsCustomAccessors($key) && !$this->hasGetMutator($key))
@@ -31,6 +49,11 @@ trait CustomAccessorsAndMutators
     }
 
 
+    /**
+     * Convert the model instance to an array assigning specific accessor.
+     *
+     * @return array
+     */
     public function toArray()
     {
         $attributes = parent::toArray();
@@ -53,24 +76,53 @@ trait CustomAccessorsAndMutators
     }
 
 
+    /**
+     * Checks whether the key exists
+     *
+     * @param $key
+     *
+     * @return bool
+     */
     private function _hasExistsCustomAccessors($key)
     {
         return isset($this->customAccessors) && array_key_exists($key, $this->customAccessors);
     }
 
 
+    /**
+     * Checks whether the key exists
+     *
+     * @param $key
+     *
+     * @return bool
+     */
     private function _hasExistsCustomMutators($key)
     {
         return isset($this->customMutators) && array_key_exists($key, $this->customMutators);
     }
 
 
+    /**
+     * Verifies that the method exists in the class
+     *
+     * @param $method
+     *
+     * @return bool
+     */
     private function _hasMethodCustomAccessorsAndMutatorsExists($method)
     {
         return method_exists($this, $method) || class_exists($method);
     }
 
 
+    /**
+     * Executes the logic specific for accessor
+     *
+     * @param $key
+     * @param $value
+     *
+     * @return mixed
+     */
     private function _callMethodAccessor($key, $value)
     {
         $classOrMethod = $this->customAccessors[$key];
@@ -85,6 +137,14 @@ trait CustomAccessorsAndMutators
     }
 
 
+    /**
+     * Executes the logic specific for mutator
+     *
+     * @param $key
+     * @param $value
+     *
+     * @return mixed
+     */
     private function _callMethodMutator($key, $value)
     {
         $classOrMethod = $this->customMutators[$key];
@@ -100,6 +160,13 @@ trait CustomAccessorsAndMutators
     }
 
 
+    /**
+     * Verifies that the specified class exists and implements a particular interface
+     *
+     * @param $class
+     *
+     * @return bool
+     */
     private function _hasClassAccessorsAndMutatorsExists($class)
     {
         if (!class_exists($class))
