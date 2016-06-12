@@ -24,7 +24,7 @@ If you already use Composer (which is highly recommended), add the dependency un
 ```php
     require : {
             "laravel/framework": "5.1.*",
-            "igorwanbarros/custom-accessor-and-mutator": "master"
+            "igorwanbarros/custom-accessor-and-mutator": "v1.*"
         }
 ```
 
