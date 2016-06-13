@@ -63,7 +63,7 @@ trait CustomAccessorsAndMutators
             return $attributes;
 
         foreach ($this->customAccessors as $key => $classOrMethod) {
-            $value = $this->attributes[$key];
+            $value = isset($this->attributes[$key]) ? $this->attributes[$key] : null;
 
             if (($this->_hasMethodCustomAccessorsAndMutatorsExists($classOrMethod) ||
                     $this->_hasClassAccessorsAndMutatorsExists($classOrMethod)) &&
