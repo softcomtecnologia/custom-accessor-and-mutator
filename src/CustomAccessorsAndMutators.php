@@ -19,8 +19,7 @@ trait CustomAccessorsAndMutators
      */
     public function setAttribute($key, $value)
     {
-        if ($this->_hasExistsCustomMutators($key) && isset($this->attributes[$key]) && !$this->hasSetMutator($key)) {
-
+        if ($this->_hasExistsCustomMutators($key) && array_key_exists($key, $this->attributes) && !$this->hasSetMutator($key)) {
             if ($this->_hasMethodCustomAccessorsAndMutatorsExists($this->customMutators[$key])) {
                 $this->attributes[$key] = $this->_callMethodMutator($key, $value);
                 return $this;
@@ -63,7 +62,7 @@ trait CustomAccessorsAndMutators
             return $attributes;
 
         foreach ($this->customAccessors as $key => $classOrMethod) {
-            $value = isset($this->attributes[$key]) ? $this->attributes[$key] : null;
+            $value = array_key_exists($key, $this->attributes) ? $this->attributes[$key] : null;
 
             if (($this->_hasMethodCustomAccessorsAndMutatorsExists($classOrMethod) ||
                     $this->_hasClassAccessorsAndMutatorsExists($classOrMethod)) &&
