@@ -1,10 +1,10 @@
 <?php
 
-namespace Igorwanbarros\CustomAccessorAndMutator;
+namespace Softcomtecnologia\CustomAccessorAndMutator;
 
 /**
  * Trait CustomAccessorsAndMutators
- * @package Igorwanbarros\CustomAccessorAndMutator
+ * @package Softcomtecnologia\CustomAccessorAndMutator
  */
 trait CustomAccessorsAndMutators
 {
