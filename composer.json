@@ -1,5 +1,5 @@
 {
-    "name": "igorwanbarros/custom-accessor-and-mutator",
+    "name": "softcomtecnologia/custom-accessor-and-mutator",
     "description": "to set attributes laravel model (accessors and mutators) without creating methods",
     "require": {
         "laravel/framework": "5.1.*"
@@ -13,7 +13,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Igorwanbarros\\CustomAccessorAndMutator\\": "src/"
+            "Softcomtecnologia\\CustomAccessorAndMutator\\": "src/"
         }
     }
 }
