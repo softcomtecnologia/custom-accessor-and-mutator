@@ -1,10 +1,10 @@
 <?php
 
-namespace Igorwanbarros\CustomAccessorAndMutator;
+namespace Softcomtecnologia\CustomAccessorAndMutator;
 
 /**
  * Interface FormatAccessorAndMutator
- * @package Igorwanbarros\CustomAccessorAndMutator
+ * @package Softcomtecnologia\CustomAccessorAndMutator
  */
 interface FormatAccessorAndMutator
 {
