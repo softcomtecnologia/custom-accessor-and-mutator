@@ -2,7 +2,7 @@
     "name": "softcomtecnologia/custom-accessor-and-mutator",
     "description": "to set attributes laravel model (accessors and mutators) without creating methods",
     "require": {
-        "laravel/framework": "5.1.*"
+        "laravel/framework": "^7.0"
     },
     "license": "MIT",
     "authors": [
