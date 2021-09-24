@@ -126,11 +126,13 @@ trait CustomAccessorsAndMutators
     {
         $classOrMethod = $this->customAccessors[$key];
 
-        if ($this->_hasClassAccessorsAndMutatorsExists($classOrMethod))
+        if ($this->_hasClassAccessorsAndMutatorsExists($classOrMethod) || class_exists($classOrMethod)) {
             return $classOrMethod::get($value);
+        }
 
-        if ($this->_hasMethodCustomAccessorsAndMutatorsExists($classOrMethod))
+        if ($this->_hasMethodCustomAccessorsAndMutatorsExists($classOrMethod) && method_exists($this, $classOrMethod)) {
             return $this->{$classOrMethod}($value);
+        }
 
         return $value;
     }
